@@ -10,18 +10,24 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
-    <h1>Tasks</h1>
-    <ul>
-        {% for task in tasks %}
-        <li>
-            <a href="{% url 'task_detail' task.id %}">
-                <strong>{{task.title}}</strong>
-                <p>{{task.descripcion}}</p>
-                <p>{{task.user.username}}</p>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group">
+                    <h1 class="text-info text-center display-3 py-3">Hospitales</h1>
+                    {% for task in tasks %}
+                    <a class="list-group-item" href="{% url 'task_detail' task.id %}">
+                        <header class="d-flex justify-content-between">
+                            <h1 class="fw-bold">{{task.title}}</h1>
+                            <p>{{task.user.username}}</p>
+                        </header>
+                        <p>{{task.descripcion}}</p>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
     {% endblock %}
 </body>
 

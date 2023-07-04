@@ -56,6 +56,13 @@ def task_detail(request,task_id):
             return render(request, 'task_detail.html',{'task':task,'form':form, 'error':'Error al actualizar tarea'})
        
 
+def delete_task(request,task_id):
+    task = get_object_or_404(Task,pk=task_id, user=request.user)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('tasks')
+
+
 
 def create_task(request):
     if request.method == 'GET':

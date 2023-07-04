@@ -10,16 +10,33 @@
 <body>
     {% extends 'base.html '%}
     {% block content %}
-    <h1>signin</h1>
 
-    <form action="/signin/" method="POST">
-        {% csrf_token%}
-        {{error}}
-        {{form.as_p}}
-        <button>
-            Signin
-        </button>
-    </form>
+    <main class="container">
+        <div class="m-0 vh-100 row justify-content-center aling-items-center">
+            <div class="col-auto p-5 text-center">
+                <form action="/signin/" method="POST" class="card card-body text-center">
+                    <h1>Iniciar Sesion</h1>
+                    {{error}}
+                    {% csrf_token %}
+                    <div class="mb-3 d-flex m-2">
+                        <label for="username" class="fs-6">Ingresa un Username:</label>
+                        <input type="text" name="username" id="username" class="form-control"
+                            placeholder="Escribe tu Username">
+                    </div>
+                    <div class="mb-3 d-flex m-2">
+                        <label for="password" class="fs-6">Ingresa la Contraseña:</label>
+                        <input type="password" 1 name="password" id="password" class="form-control"
+                            placeholder="Escribe tu Contraseña">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">
+                            Iniciar Sesion
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 
     {% endblock %}
 
