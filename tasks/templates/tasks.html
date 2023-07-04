@@ -18,10 +18,11 @@
                     {% for task in tasks %}
                     <a class="list-group-item" href="{% url 'task_detail' task.id %}">
                         <header class="d-flex justify-content-between">
-                            <h1 class="fw-bold">{{task.title}}</h1>
+                            <h1 class="fw-bold">{{task.titulo}}</h1>
                             <p>{{task.user.username}}</p>
                         </header>
-                        <p>{{task.descripcion}}</p>
+                        <p>{{task.ubicacion}}</p>
+                        <p>{{task.reseña}}</p>
                     </a>
                     {% endfor %}
                 </ul>

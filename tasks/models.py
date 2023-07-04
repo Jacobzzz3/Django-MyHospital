@@ -3,13 +3,14 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Task(models.Model):
-    title = models.CharField(max_length=200)
-    descripcion = models.TextField()
+    titulo = models.CharField(max_length=200)
+    ubicacion = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     datecompleted = models.DateTimeField(null=True, blank=True)
-    important = models.BooleanField(default=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE) 
+    reseña = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title + ' | ' + str(self.user.username)
+        return self.titulo + " | " + str(self.user.username)
